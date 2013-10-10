@@ -24,7 +24,9 @@
 //   makr nie jest zdefiniowane, albo zdefiniowane sa obydwa, to program nie powinien 
 //   sie w ogole skompilowac.
 
-#define STAR
+// Dla ulatwienia ponizej definicje makr w kodzie, mozna tez przekazac parametr /DSTAR albo /DEQU podczas kompilacji 
+//#define STAR
+//#defina EQU
 
 #include <iostream>
 
@@ -57,7 +59,7 @@ void drawHistogram(unsigned int a, unsigned int b, unsigned int c) {
 
 	// rysowanie histogramu
 	for (unsigned int i=max(a, b, c); i>0; i--) {
-		cout << ((a >= i) ? symbol : ' ') << ((b >= i) ? symbol : ' ') << ((c >= i) ? symbol : ' ') << endl;
+		cout << ((a >= i) ? symbol : ' ') << ' ' << ((b >= i) ? symbol : ' ') << ' ' << ((c >= i) ? symbol : ' ') << endl;
 	}
 
 }
