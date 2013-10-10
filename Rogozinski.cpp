@@ -26,7 +26,7 @@
 
 // Dla ulatwienia ponizej definicje makr w kodzie, mozna tez przekazac parametr /DSTAR albo /DEQU podczas kompilacji 
 //#define STAR
-//#defina EQU
+//#define EQU
 
 #include <iostream>
 
