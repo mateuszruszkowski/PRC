@@ -9,6 +9,8 @@
 // którego warto±¢ jest (co do moduªu) najbli»sza tej ±redniej.
 // Na przykªad nast¦puj¡ca funkcja main
 //
+// 
+//
 // int main() {
 // double arr[] = {1,2,3,4,5,7};
 // size_t size = sizeof(arr)/sizeof(arr[0]);
@@ -27,36 +29,20 @@ using namespace std;
 // funkcja rekurencyjna do wyliczania sredniej arytmetycznej z podanych elementow
 double avg(double currAvg, double* elements, size_t index) {
 
-	// Do zliczania sredniej uzywam algorytmu inkrementacyjnego:
-	// a(n) = ( a(n-1)*(n-1) + v(n) ) / n
-	// Glowna zaleta tego algorytmu jest brak koniecznosci sumowania wszystkich elementow zanim zostana
-	// one podzielone przez ich ilosc. 
-	// W tradycyjnym algorytmie liczba w liczniku moze szybko urosnac i nie zmiescic sie w zakresie danego typu
-	// ktory przechowuje srednia. Zamiast tego przy kazdej inkrementacji wyliczana jest srednia, ktora
-	// miesci sie bez problemu w zakresie typu. 
-
 	if (index == 1) {
 		// definicja base case
 		return elements[index-1];
 	} else {
 		// poprzednia wartosc sredniej
 		double prevAvg = avg(currAvg, elements, index - 1);
-
 		// biezaca wartosc sredniej
 		return ( prevAvg * (index-1) + elements[index-1] ) / index;
 	}
 
 }
 
-
-// zwraca srednia arytmetyczna z elementow tablicy liczb typu double
-double avg(double* elements, size_t size) {
-	// wywoluje metode rekrencyjna z podaniem poczatkowej sredniej rownej 0
-	return avg(0, elements, size);
-}
-
 // Znajduje w tablicy elements najblizsza co do modulu wartosc do average i zwraca wskaznik do tego elelemntu.
-double* findClosestValue(double* elements, size_t size, double average) {
+double* findClsValue(double* elements, size_t size, double average) {
 
 	// najblizszy element
 	double* elem = NULL;
@@ -81,14 +67,14 @@ double* findClosestValue(double* elements, size_t size, double average) {
 double* aver(double* arr, size_t size, double& average) {
 
 	// wyliczenie sredniej arytmetycznej
-	average = avg(arr, size);
+	average = return avg(0, elements, size);
 
 	// znalezienie najblizszej wartosci
-	return findClosestValue(arr, size, average);
+	return findClsValue(arr, size, average);
 
 }
 
-// Program wlasciwy demonstrujacy uzycie funkcji aver
+// main z zadania
 int main() {
 	double arr[] = { 1, 2, 3, 4, 5, 7 };
 	size_t size = sizeof(arr) / sizeof(arr[0]);
